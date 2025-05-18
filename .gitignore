@@ -2,36 +2,23 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-*.log
-static/audio/*
-!static/audio/.gitkeep
-tmp/
-.env
-.venv
-env/
-venv/
-ENV/
-*.wav
-.DS_Store
 
 # Virtual Environment
 venv/
 ENV/
 env/
-.env
-.venv
-env.bak/
-venv.bak/
+.env/
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
+# Audio files but keep .gitkeep
+static/audio/*
+!static/audio/.gitkeep
 
-# OS
+# Logs and temporary files
+*.log
+tmp/
+.tmp/
+
+# OS specific
 .DS_Store
 .DS_Store?
 ._*
@@ -40,23 +27,17 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Project specific
-static/audio/*
-!static/audio/.gitkeep
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Large files and models
-*.pth
-*.pt
-*.ckpt
-*.bin
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
 
-# Logs
-*.log
-logs/
-
-# Misc
-*.pyc
-*.pyo
-*.pyd
-tmp/
-*.wav
+# Local development settings
+.env
+.env.local 
