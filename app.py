@@ -2,8 +2,14 @@ from flask import Flask, render_template, request, send_file, jsonify
 import os
 import subprocess
 
+# Initialize Flask app
 app = Flask(__name__, static_url_path='/static')
 app.config['UPLOAD_FOLDER'] = 'static/audio'
+
+# Production configuration
+app.config['ENV'] = 'production'
+app.config['DEBUG'] = False
+app.config['TESTING'] = False
 
 # Ensure the upload folder exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -98,5 +104,13 @@ def synthesize():
         }), 500
 
 if __name__ == '__main__':
+    # Get port from environment variable with a default of 4005
     port = int(os.environ.get('PORT', 4005))
-    app.run(host='0.0.0.0', port=port, debug=False) 
+    # Run the app with production settings
+    app.run(
+        host='0.0.0.0',
+        port=port,
+        debug=False,
+        use_reloader=False,
+        threaded=True
+    ) 
